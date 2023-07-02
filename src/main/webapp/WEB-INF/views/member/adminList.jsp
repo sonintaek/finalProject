@@ -181,7 +181,7 @@ ADMIN
 		 <script>
 			function a1(){
 				$.ajax({
-					url:"adminList.do",
+					url:"${pageContext.request.contextPath}/member/adminList.do",
 					success:function(result){
 						console.log(result);
 						let value = "";

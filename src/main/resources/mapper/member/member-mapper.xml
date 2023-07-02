@@ -28,7 +28,7 @@
 		 where M_ID = #{mId}
 	</select>
 	
-	<select id="seletadminList" resultMap="memberMap">
+	<select id="selectadminLis" resultMap="memberMap">
 		select *
 		from member
 		<!-- order by no desc -->
