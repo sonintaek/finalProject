@@ -28,15 +28,29 @@
 		 where M_ID = #{mId}
 	</select>
 	
-	<select id="selectadminLis" resultMap="memberMap">
-		select *
-		from member
-		<!-- order by no desc -->
-	
-	</select>
-	
-	
-	
-	
+    <select id="selectMembers" resultMap="memberMap">
+        SELECT * 
+        FROM member
+    </select>
+    
+    <!-- 
 
+<delete id="adminDrop" parameterType="java.lang.String">
+  ALTER TABLE MEMBER
+  DROP COLUMN ${columnName}
+</delete>
+ -->
+ 	<!--  <delete id="deleteMember">
+        DELETE FROM member
+        WHERE MId = #{mId}
+    </delete> -->
+    
+       <delete id="deleteMember">
+        DELETE 
+        FROM member
+        WHERE MId = #{memberId}
+    </delete>
+    
 </mapper>
+	
+	

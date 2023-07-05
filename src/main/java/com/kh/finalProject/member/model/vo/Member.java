@@ -1,6 +1,12 @@
 package com.kh.finalProject.member.model.vo;
 
-import java.sql.Date;
+
+
+
+
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +24,8 @@ public class Member {
 	private String mPwd;
 	private String mName;
 	private String mBirth;
-	private Date mCreate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate mCreate;
 	private String mTel;
 	private String mAddr;
 	private String mEmail;

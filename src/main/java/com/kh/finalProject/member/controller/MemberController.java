@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,36 +35,40 @@ public class MemberController {
 	@GetMapping("/loginMember.me")
 	public void loginMember() {}
 	
-	
 	@RequestMapping("/adminList.me")
-	public void adminList() {}
+	public void adminLis() {}
 	
 	
 	
-	@GetMapping("/adminList.do")
-	public String adminList(Model model) {
-		List<Member> adminList = memberService.selectadminList();
-		model.addAttribute("adminList",adminList);
-		return "member/adminList";
+	
+//	전체회원조회
+	  @GetMapping("/list") 
+	  public String getMemberList(Model model) { 
+		  List<Member> list = memberService.getMembers(); 
+		  model.addAttribute("list", list ); 
+		  return "jsonView"; 
+	  }
+	  
+	  
+	  
+	  
 		
+		  // 회원삭제
+		  
+	  @PostMapping("/adminDrop.me")
+	    @ResponseBody
+	    public String deleteMember(@RequestParam("MId") String memberId) {
+	        memberService.deleteMember(memberId);
+	        return "success";
+	    }
+	  // 회원수정
 		
-		
-	}
-	
-	/*
-	 * @GetMapping("/devList.do") public String devList(Model model) { // 순서
-	 * controller -> service(Impl) -> Dao(Impl) -> demo-mapper.xml
-	 * 
-	 * List<Dev> devList = demoService.selectDevList(); //서비스에서 가져올 값
-	 * System.out.println("devList = " + devList);
-	 * 
-	 * 
-	 * model.addAttribute("devList",devList); return "demo/devList"; }
-	 */
-
-	
-	
-	
+	  
+	  
+	  
+	  
+	  
+	  
 	@PostMapping("/memberEnroll.me")
 	public String memberEnroll(Member member) {
 		// 비밀번호 암호화 과정

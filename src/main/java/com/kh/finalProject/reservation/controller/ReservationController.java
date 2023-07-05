@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.finalProject.reservation.model.service.ReservationService;
 import com.kh.finalProject.reservation.model.vo.Reservation;
@@ -35,8 +36,9 @@ public class ReservationController {
 		public void reservationForm(){}
 	
 	@PostMapping("/reserInsert.do")  // 예약페이지 인설트 
-	public String reserInsert(Reservation reservation) {
+	public String reserInsert(Reservation reservation, RedirectAttributes redirectAttr ) {
 		int result = reservationService.insertReservation(reservation);
+		redirectAttr.addFlashAttribute("msg","수정완료");
 		return "/reservation/resermoney";
 	}
 	

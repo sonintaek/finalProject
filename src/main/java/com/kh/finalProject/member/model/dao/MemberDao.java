@@ -9,10 +9,18 @@ import com.kh.finalProject.member.model.vo.Member;
 @Mapper
 public interface MemberDao {
 
+
 	int insertMember(Member member);
 
 	Member selectOneMember(String mId);
 
-	List<Member> selectadminList();
+	 List<Member> selectMembers();
+
+	void deleteMember(String memberId);
+
+	
+
+	
+
 
 }
