@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -41,6 +42,58 @@ public class ReservationController {
 		redirectAttr.addFlashAttribute("msg","수정완료");
 		return "/reservation/resermoney";
 	}
+	
+	
+	@GetMapping("/adminRezList.my")
+	public String adminRezList(Model model) {
+		List<Reservation> adminRezList = reservationService.getadminRezList();
+		model.addAttribute("adminRezList", adminRezList);
+		return "jsonView";
+	}
+	@PostMapping("/adminRezDelete.my")
+	public String adminRezDelete(@RequestParam("rezNo") String rezNo, Model model) {
+		reservationService.adminRezDelete(rezNo);
+		return "jsonView";
+	}
+	@PostMapping("/adminRezUpdate.my")
+	public String adminRezUpdate(Reservation reservation, Model model) {
+		int result = reservationService.adminRezUpdate(reservation);
+		return "jsonView";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

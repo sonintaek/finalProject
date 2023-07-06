@@ -9,15 +9,16 @@
 	<insert id="insertMember">
 		insert into member
 			values(
-				#{mId},
-				#{mPwd},
-				#{mName},
-				#{mBirth},
+				#{memId},
+				#{memPwd},
+				#{memName},
+				#{memBirth},
 				default,
-				#{mTel},
-				#{mAddr},
-				#{mEmail},
+				#{memTel},
+				#{memAddr},
+				#{memEmail},
 				default,
+				to_date('01/01/01','RR/MM/DD'),
 				default
 			)
 	</insert>
@@ -25,32 +26,64 @@
 	<select id="selectOneMember" resultMap="memberMap">
 		select *
 		  from member
-		 where M_ID = #{mId}
+		 where MEM_ID = #{memId}
 	</select>
 	
+	<update id="changePwd">
+		update member
+		   set MEM_PWD = #{memPwd}
+	     where MEM_ID = #{memId}
+	</update>
+	
+	
+<!--관리자 mapper-->	
     <select id="selectMembers" resultMap="memberMap">
         SELECT * 
         FROM member
     </select>
     
-    <!-- 
-
-<delete id="adminDrop" parameterType="java.lang.String">
-  ALTER TABLE MEMBER
-  DROP COLUMN ${columnName}
-</delete>
- -->
- 	<!--  <delete id="deleteMember">
-        DELETE FROM member
-        WHERE MId = #{mId}
-    </delete> -->
-    
-       <delete id="deleteMember">
+    <delete id="deleteMember">
         DELETE 
         FROM member
-        WHERE MId = #{memberId}
+        WHERE MEM_ID = #{memId}
     </delete>
     
+    <update id="adminMemberUpdate">
+    update member
+    set MEM_NAME = #{memName},
+        MEM_BIRTH = #{memBirth},
+        MEM_TEL = #{memTel},
+        MEM_ADDR = #{memAddr},
+        MEM_EMAIL = #{memEmail}
+    where MEM_ID = #{memId}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+<!--관리자 mapper-->	
+    
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 </mapper>
 	
 	

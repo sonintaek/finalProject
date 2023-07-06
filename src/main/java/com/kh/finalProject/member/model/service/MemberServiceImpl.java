@@ -21,19 +21,31 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Member seletOneMember(String mId) {
-		return memberDao.selectOneMember(mId);
+	public Member seletOneMember(String memId) {
+		return memberDao.selectOneMember(memId);
 	}
+	
+	
+//관리자--------------------
 	@Override
 	 public List<Member> getMembers() {
 	        return memberDao.selectMembers();
 	    }
-
 	@Override
-	public void deleteMember(String memberId) {
-		  memberDao.deleteMember(memberId);
-		
+	public void deleteMember(String memId) {
+		  memberDao.deleteMember(memId);
 	}
-
+	@Override
+	public int adminMemberUpdate(Member member) {
+		return memberDao.adminMemberUpdate(member);
+	}
+	@Override
+	public int changePwd(String memId, String memPwd) {
+		return memberDao.changePwd(memId, memPwd);
+	}
+	//관리자 end--------------------	
 	
-}
+	
+	
+	
+	}
