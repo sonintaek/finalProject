@@ -2,16 +2,15 @@
     pageEncoding="UTF-8"%>
 <%-- <%@ page import="com.kh.finalProject.member.model.vo.Member" %> --%>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <style>
- input{border: 1px; 
- }
+ 
+ 
+ 
+ 
 </style>
 <!--  부트스트랩 링크랑 스타일은 작업시 확인하기 위해 임시로 달았습니다 -->
-
-
-
 
 
 <!-- 회원 조회 삭제 , 수정 폼       -------------------------------------->		
@@ -251,10 +250,10 @@ $(document).ready(function() {
 	            	 
 	            	for (var i = 0; i < item.length; i++) {	
 	            		value += "<tr>";
-	                    value += "<td><input class='member-mid' value='" + item[i].memId + "' readonly></td>";
-	                    value += "<td><input class='member-mname' value='" + item[i].memName + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='member-mid' value='" + item[i].memId + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='member-mname' value='" + item[i].memName + "' readonly></td>";
 	                    value += "<td><input class='member-mbirth' value='" + item[i].memBirth + "'></td>";
-	                    value += "<td><input class='member-mcreate' value='" + item[i].memCreate + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='member-mcreate' value='" + item[i].memCreate + "' readonly></td>";
 	                    value += "<td><input class='member-mtel' value='" + item[i].memTel + "'></td>";
 	                    value += "<td><input class='member-maddr' value='" + item[i].memAddr + "'></td>";
 	                    value += "<td><input class='member-memail' value='" + item[i].memEmail + "'></td>";
@@ -357,9 +356,9 @@ $(document).ready(function() {
 	            	 
 	            	for (var i = 0; i < item.length; i++) {	
 	            		value += "<tr>";
-	                    value += "<td><input class='order-d1' value='" + item[i].detailNo + "' readonly></td>";
-	                    value += "<td><input class='order-d2' value='" + item[i].ordersNo + "' readonly></td>";
-	                    value += "<td><input class='order-d3' value='" + item[i].itemNo + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='order-d1' value='" + item[i].detailNo + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='order-d2' value='" + item[i].ordersNo + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='order-d3' value='" + item[i].itemNo + "' readonly></td>";
 	                    value += "<td><input class='order-d4' value='" + item[i].detailPrice + "'></td>";
 	                    value += "<td><input class='order-d5' value='" + item[i].detailCount + "'></td>";
 	                    value += "<td><input class='order-d6' value='" + item[i].itemName + "'></td>";
@@ -466,8 +465,8 @@ $(document).ready(function() {
 	            	 
 	            	for (var i = 0; i < item.length; i++) {	
 	            		value += "<tr>";
-	                    value += "<td><input class='order-c1' value='" + item[i].rezNo + "' readonly></td>";
-	                    value += "<td><input class='order-c2' value='" + item[i].memId + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='order-c1' value='" + item[i].rezNo + "' readonly></td>";
+	                    value += "<td><input style='border:none' class='order-c2' value='" + item[i].memId + "' readonly></td>";
 	                    value += "<td><input class='order-c3' value='" + item[i].farmNo + "' ></td>";
 	                    value += "<td><input class='order-c4' value='" + item[i].rezZone + "' ></td>";
 	                    value += "<td><input class='order-c5' value='" + item[i].rezStatus + "'></td>";
@@ -516,42 +515,6 @@ $(document).ready(function() {
 		    });
 		});
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

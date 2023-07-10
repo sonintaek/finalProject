@@ -28,15 +28,20 @@
         }
     </style>
     <script>
-    	var calendarTable2;
 		
+    
+    
     	function showCalendar1() {
+    		
+    		
+            document.getElementById("calendar1").style.display = "";
+            document.getElementById("calendar2").style.display = "none";
+            document.getElementById("calendar3").style.display = "none";
+            document.getElementById("calendar4").style.display = "none";
+
             var calendarTable1 = document.getElementById("calendar1");
-    		calendarTable1.innerHTML = "";
-    		if (calendarTable2) {
-    	        calendarTable2.innerHTML = "";
-    	    }
-            
+            calendarTable1.innerHTML = "";
+    		//김씨네농장
             var Row = calendarTable1.insertRow();
             var Cell = Row.insertCell();
             Cell.colSpan = 4;
@@ -49,20 +54,18 @@
                 var Row = calendarTable1.insertRow();
                 Row.innerHTML = "<td>[" + i + "]구역</td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td>";
             }
-            
     	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	function showCalendar2() {
-            var calendarTable2 = document.getElementById("calendar2");
-            calendarTable2.innerHTML = "";
-            
+        function showCalendar2() {
+           
             //윤씨네 농장
+	        document.getElementById("calendar1").style.display = "none";
+	        document.getElementById("calendar2").style.display = "";
+	        document.getElementById("calendar3").style.display = "none";
+	        document.getElementById("calendar4").style.display = "none";
+	
+	        var calendarTable2 = document.getElementById("calendar2");
+	        calendarTable2.innerHTML = "";
+        
             var yearRow2 = calendarTable2.insertRow();
             var yearCell2 = yearRow2.insertCell();
             yearCell2.colSpan = 4;
@@ -75,23 +78,16 @@
                 var monthRow2 = calendarTable2.insertRow();
                 monthRow2.innerHTML = "<td>[" + month + "]구역</td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td>";
             }
+        }   
             
-            
-            
-            
-            
-            
-            
-    	}
-    	
-    	
-    	
-    	
     	function showCalendar3() {
+    		document.getElementById("calendar1").style.display = "none";
+ 	        document.getElementById("calendar2").style.display = "none";
+ 	        document.getElementById("calendar3").style.display = "";
+ 	        document.getElementById("calendar4").style.display = "none";
+            //손씨네 농장
             var calendarTable3 = document.getElementById("calendar3");
             calendarTable3.innerHTML = "";
-            
-            //손씨네 농장
             var yearRow3 = calendarTable3.insertRow();
             var yearCell3 = yearRow3.insertCell();
             yearCell3.colSpan = 4;
@@ -105,16 +101,15 @@
                 monthRow3.innerHTML = "<td>[" + month + "]구역</td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td>";
             }
             
-            
-            
-            
     	}
-    
-        function showCalendar4() {
-            var calendarTable4 = document.getElementById("calendar4");
-            calendarTable4.innerHTML = "";
-			
+    	function showCalendar4() {
+    		document.getElementById("calendar1").style.display = "none";
+ 	        document.getElementById("calendar2").style.display = "none";
+ 	        document.getElementById("calendar3").style.display = "none";
+ 	        document.getElementById("calendar4").style.display = "";
           //서씨네 농장
+          	var calendarTable4 = document.getElementById("calendar4");
+          	calendarTable4.innerHTML = "";
             var yearRow4 = calendarTable4.insertRow();
             var yearCell4 = yearRow4.insertCell();
             yearCell4.colSpan = 4;
@@ -127,22 +122,32 @@
                 var monthRow4 = calendarTable4.insertRow();
                 monthRow4.innerHTML = "<td>[" + month + "]구역</td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td><td><a href='#'>예약</a></td>";
             }
-            
-        }
-   
-    
+             
+    	}
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     </script>
 </head>
 <body>
     <h1>예약 캘린더</h1>
 
     <div class="year" onclick="showCalendar1()">김씨네농장</div>
-    <div class="year" onclick="showCalendar2()">손씨네농장</div>
-    <div class="year" onclick="showCalendar3()">서씨네농장</div>
-    <div class="year" onclick="showCalendar4()">윤씨네농장</div>
+    <div class="year" onclick="showCalendar2()">윤씨네농장</div>
+    <div class="year" onclick="showCalendar3()">손씨네농장</div>
+    <div class="year" onclick="showCalendar4()">서씨네농장</div>
     
-    
-
 
     <table id="calendar1">
     </table>
