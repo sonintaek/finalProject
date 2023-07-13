@@ -98,7 +98,7 @@ String id = (String) session.getAttribute("idKey");
                </ul>
                
                <div class="btn-area">
-                  <button type="submit" class="btn-reservation" onclick="location.href='${pageContext.request.contextPath}/reservation/reserForm.do'">예약하기</button>
+                  <button type="submit" class="btn-reservation" onclick="location.href='${pageContext.request.contextPath}/sector/sectorRez2.my'">예약하러가기</button>
                   <button type="reset" class="btn-reset">초기화</button>
                </div>
                

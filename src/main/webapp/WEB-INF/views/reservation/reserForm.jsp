@@ -1,3 +1,4 @@
+<%@page import="com.kh.finalProject.sector.model.vo.Sector"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -81,65 +82,67 @@
 <div class="form-container">
     <form  action="${pageContext.request.contextPath}/reservation/reserSelect.me" method="get">
         <h3>농장 정보</h3>
+        <button onclick="afaf">농장 정보 가져오기</button>
         <div class="form-row">
             <div class="form-col">
-                <label for="farm_name">농장</label>
-                <input type="text" id="farm_name" name="farm_name" placeholder="농장이름" readonly>
+                <label for="farm_name">예약구역명</label>
+                <input type="text" id="farm_name" name="farm_name" value="${radio.sectorName }" readonly>
             </div>	
             <div class="form-col">
                 <label for="section_number">구역번호</label>
-                <input type="text" id="section_number" name="section_number" placeholder="구역번호" readonly>
+                <input type="text" id="section_number" name="section_number"  value="${radio.sectorNo }" readonly>
             </div>
         </div>
         <div class="form-row">
             <div class="form-col">
                 <label for="price">금액</label>
-                <input type="number" id="price" name="price" placeholder="금액" readonly>
+                <input type="number" id="price" name="price" value="${radio.sectorPrice }" placeholder="금액" readonly>
             </div>
             <div class="form-col">
                 <label for="reservation_status">예약 상태</label>
-                <input type="text" id="reservation_status" name="reservation_status" placeholder="예약상태" readonly>
+                <input type="text" id="reservation_status" name="reservation_status" placeholder="예약상태" value="예약가능" readonly>
             </div>
         </div>
         <div class="form-row">
             <div class="form-col">
                 <label for="start_date">예약 시작일</label>
-                <input type="date" id="start_date" name="start_date" readonly>
+                <input type="text" id="start_date" name="start_date" value="${ document.write(num) }" readonly>
+                
             </div>
             <div class="form-col">
                 <label for="crop">작물</label>
-                <input type="text" id="crop1" name="crop" placeholder="예시) 감자" readonly>
+                <input type="text" id="crop1" name="crop" value="" placeholder="${sessionScope.hItem1}" readonly>
             </div>
         </div>
         <h3>예약 정보</h3><small>*수정불가</small>
         <div class="form-row">
             <div class="form-col">
                 <label for="name">예약자명</label>
-             	<input type="text" id="" name="" value="${loginMember.MId}" readonly >
+             	<input type="text" id="" name="" value="${loginMember.memId}" readonly >
             </div>
 
             <div class="form-col">
                 <label for="phone_number">전화번호</label>
-                <input type="tel" id="" name="phone_number" value="${loginMember.MTel}" readonly>
+                <input type="tel" id="" name="phone_number" value="${loginMember.memTel}" readonly>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-col">
                 <label for="address">예약자 주소</label>
-                <input type="text" id="address"  name="address" value="${loginMember.MAddr }" readonly>
+                <input type="text" id="address"  name="address" value="${loginMember.memAddr }" readonly>
             </div>
 
             <div class="form-col">
                 <label for="email">이메일</label>
-                <input type="email" id="email" name="email" value="${loginMember.MEmail }" readonly>
+                <input type="email" id="email" name="email" value="${loginMember.memEmail }" readonly>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-col">
                 <label for="total_amount">총 결제금액</label>
-                <input type="number" id="total_amount" name="total_amount" readonly>
+                <input type="number" id="total_amount" name="total_amount" value="${radio.sectorPrice }" readonly>
             </div>
         </div>
     </form>
@@ -147,22 +150,15 @@
     <!--예약자의 정보가 insert 되어지는값  -->
     <form action="${pageContext.request.contextPath}/reservation/reserInsert.do" method="post" onsubmit="return check()">
     <div class="form-row">
-    	<input type="hidden" value="" name="rNo" placeholder="예약번호">
-    	<input type="hidden" value="${loginMember.MId}" name="mId" placeholder="예약자id">
-    	<input type="hidden" value="" name="fNo" placeholder="농장번호">
-    	<input type="hidden" value="" name="rZone" placeholder="예약구역">
-    	<input type="hidden" value="" name="rStatus" placeholder="예약가능상태">
-    	<input type="hidden" value="" name="rStart" placeholder="예약시작일">
-    	<input type="hidden" value="" name="rPrice" placeholder="총금액">
-    	<input type="hidden" value="" name="rItem" placeholder="키울작물">
-   <!-- <input type="hidden" placeholder="예약번호">
-    	<input type="hidden" placeholder="예약자id">
-    	<input type="hidden" placeholder="농장번호">
-    	<input type="hidden" placeholder="예약구역">
-    	<input type="hidden" placeholder="예약가능상태">
-    	<input type="hidden" placeholder="예약시작일">
-    	<input type="hidden" placeholder="총금액">
-    	<input type="hidden" placeholder="키울작물">   -->  
+    	<input type="hidden" value="" name="rezNo" placeholder="예약번호">
+    	<input type="hidden" value="${loginMember.memId}" name="mId" placeholder="예약자id">
+    	<input type="hidden" value="" name="farmNo" placeholder="농장번호">
+    	<input type="hidden" value="" name="rezZone" placeholder="예약구역">
+    	<input type="hidden" value="" name="rezStatus" placeholder="예약가능상태">
+    	<input type="hidden" value="" name="rezStart" placeholder="예약시작일">
+    	<input type="hidden" value="" name="rezPrice" placeholder="총금액">
+    	<input type="hidden" value="" name="rezsItem" placeholder="키울작물">
+
             <div class="form-col">
                 <input type="submit" value="예약하기">
             </div>
@@ -174,13 +170,45 @@
     </form>
     
     <script>
-    function check()
-    {
-    /* confirm 함수는 확인창 결과값으로 TRUE 와 FALSE 값을 return 하게 된다*/
-    var check_submit=confirm('예약하시겠습니다');
-    return check_submit;
-    
+   	var num;
+    switch(${radio.sectorSchdule}){
+    case 1: 
+    	num = "1월~3월";
+    	console.log(num);
+    	break;
+    case 2:
+    	${radio.sectorSchdule} == num;
+    	num="4~6월";
+    	console.log(${radio.sectorSchdule});
+    	break;
+    case 3:
+    	${radio.sectorSchdule} == num;
+    	num="7월~9월";
+    	console.log(${radio.sectorSchdule});
+    	break;
+    default: 
+    	   break;
     }
+    // js 치환하는법 (예약날짜값을 텍스트로 변경)
+   
+    	
+    
+    
+    // 인설트 되기전에 확인 confirm 개좋은 함수 TRUE 와 FALSE 값을 return
+    function check(){
+   		var check_submit=confirm('예약하시겠습니까?');
+    return check_submit;    
+    }
+    
+    /* $(document).ready(function(){
+    	
+    	
+    }); */
+    function afaf(){
+    	
+    }	
+    
+    
     </script> 
     
     
@@ -189,6 +217,9 @@
     
     
 </div>
+
+
+
 <div id="map" style="width:500px;height:400px; margin: auto;">
 <div id="map" style="width:500px;height:400px;margin: auto; ">
 </div>

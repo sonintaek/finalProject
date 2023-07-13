@@ -36,30 +36,34 @@ public class ReservationController {
 	@RequestMapping("/reserForm.do")
 		public void reservationForm(){}
 	
-	@PostMapping("/reserInsert.do")  // 예약페이지 인설트 
-	public String reserInsert(Reservation reservation, RedirectAttributes redirectAttr ) {
-		int result = reservationService.insertReservation(reservation);
-		redirectAttr.addFlashAttribute("msg","수정완료");
-		return "/reservation/resermoney";
-	}
 	
 	
-	@GetMapping("/adminRezList.my")
+// -------------관리자페이지---------------
+	@GetMapping("/adminRezList.my")//관리자페이지 예약조회
 	public String adminRezList(Model model) {
 		List<Reservation> adminRezList = reservationService.getadminRezList();
 		model.addAttribute("adminRezList", adminRezList);
 		return "jsonView";
 	}
-	@PostMapping("/adminRezDelete.my")
+	@PostMapping("/adminRezDelete.my")//관리자페이지 예약삭제
 	public String adminRezDelete(@RequestParam("rezNo") String rezNo, Model model) {
 		reservationService.adminRezDelete(rezNo);
 		return "jsonView";
 	}
-	@PostMapping("/adminRezUpdate.my")
+	@PostMapping("/adminRezUpdate.my")//관리자페이지 예약수정
 	public String adminRezUpdate(Reservation reservation, Model model) {
 		int result = reservationService.adminRezUpdate(reservation);
 		return "jsonView";
 	}
+//	------------예약페이지-----------------
+	@PostMapping("/reserInsert.do")  //예약페이지 마지막 인설트
+	public String reserInsert(Reservation reservation, RedirectAttributes redirectAttr ) {
+		int result = reservationService.insertReservation(reservation);
+		redirectAttr.addFlashAttribute("msg","수정완료");
+		return "/reservation/resermoney";
+	}
+
+}	
 	
 	
 	
@@ -94,8 +98,4 @@ public class ReservationController {
 	
 	
 	
-	
-	
-	
-	
-}
+

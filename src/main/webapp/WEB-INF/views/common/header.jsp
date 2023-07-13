@@ -56,7 +56,7 @@
        			<ul class="middle-nav">
 	            	<li><a href="#">공지사항</a></li>
 	            	<li><a href="${pageContext.request.contextPath}/board/boardList.do">게시판</a></li>
-	            	<li><a href="${pageContext.request.contextPath}/reservation/indexFarm.do">농지예약</a></li>
+	            	<li><a href="${pageContext.request.contextPath}/farm/indexFarm.do">농지예약</a></li>
 	            	<li>
 	            		<a href="${pageContext.request.contextPath}/item/packageList2.bo">패키지</a>
             		</li>

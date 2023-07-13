@@ -6,6 +6,12 @@ import com.kh.finalProject.sector.model.vo.Sector;
 
 public interface SectorService {
 
+	List<Sector> getSectors();
+
+	
+
+	Sector radioRez(String radio);
+	
 
 
 }

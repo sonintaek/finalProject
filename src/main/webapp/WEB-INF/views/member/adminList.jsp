@@ -198,6 +198,7 @@ $(document).ready(function() {
 	      url: "${pageContext.request.contextPath}/member/list",
 	      success: function(data) {
 	        var value = "";
+	        
 	        $.each(data, function(index, item) {
 	          for (var i = 0; i < item.length; i++) {
 	            value += "<tr>";

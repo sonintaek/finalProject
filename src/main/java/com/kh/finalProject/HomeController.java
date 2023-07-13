@@ -25,7 +25,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		
-		return "forward:/sectorRez2.jsp";
+		return "forward:/index.jsp";
 	}
 	
 }
