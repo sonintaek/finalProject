@@ -13,7 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
-<div class="container">			
+<div class="container">
 	<div class="reservation-info">
 		
 		<!-- 지도영역 -->
@@ -61,13 +61,13 @@
 				      <ul id="farmItemList"></ul>
 				      <form action="${pageContext.request.contextPath}/farm/hopeItem.go"  method="post">
 					      <div class="choice">
-						      <div>1. <input type="text" size="12" name="hItem1" placeholder="희망재배작물"></div>
+						      <div>1. <input type="text" size="12" name="hItem1" placeholder="희망재배작물" ></div>
 						      <div>2. <input type="text" size="12" name="hItem2" placeholder="희망재배작물"></div>
 					      </div>
 					      
 					      <div class="btn-area">
-							  <button type="submit" class="btn-reservation" >예약하기</button>
-							  <button type="reset" class="btn-reset" onclick="location.href='${pageContext.request.contextPath}/sector/sectorRez2.my'">취소</button>
+							  <button type="submit" class="btn-reservation">예약하기</button>
+							  <button type="reset" class="btn-reset">취소</button>
 						  </div>
 				      </form>   
 				   </li>   	
@@ -84,18 +84,7 @@
 		    </li>
 		</ul>
 		
-		<%-- <!-- 농장앨범 css주기 -->
-		<div class="swiper">
-			  <div class="swiper-wrapper">
-			    <!-- Slides -->
-			    <div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/f1.png"></div>
-			    <div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/f2.png"></div>
-			    <div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/f3.png"></div>
-			    <div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/f4.png"></div>
-			    <div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/f5.jpg"></div>
-			    <div class="swiper-slide"><img src="${pageContext.request.contextPath}/resources/images/soilhands.jpg"></div>
-			  </div>
-		</div> --%>
+		
 	</div> 
 	
 		<div class="content-area" id="idxD1" style="display: none;">

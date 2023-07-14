@@ -31,7 +31,7 @@ public class ReservationController {
 	   public void resFarm() {}
 	
 	@RequestMapping("/reserInsert.do")
-	   public void reserForm() {}
+	   public void reserForm() {}	
 	
 	@RequestMapping("/reserForm.do")
 		public void reservationForm(){}

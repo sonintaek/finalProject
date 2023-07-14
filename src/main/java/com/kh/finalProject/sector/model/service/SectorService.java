@@ -8,8 +8,6 @@ public interface SectorService {
 
 	List<Sector> getSectors();
 
-	
-
 	Sector radioRez(String radio);
 	
 

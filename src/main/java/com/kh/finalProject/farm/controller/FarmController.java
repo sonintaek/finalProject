@@ -16,7 +16,6 @@ import com.kh.finalProject.farm.model.service.FarmService;
 import com.kh.finalProject.farm.model.vo.Farm;
 
 @Controller
-
 @RequestMapping("/farm")
 public class FarmController {
 	@Autowired
@@ -29,27 +28,49 @@ public class FarmController {
 	public void gunpoFarm() {}
 	
 	
+	//작물선택,지역선택,설명----------------------------------
 	@ResponseBody
-	@GetMapping("/farmInfo") // JSON 형식
+	@GetMapping("/farmInfo") // JSON 형식 farmId에 해당하는 농장 정보
 	public Farm farmInfo(@RequestParam int farmId, Model model) {
-	  // farmService.selectFarmById() 메소드를 호출하여 farmId에 해당하는 농장 정보를 불러옵니다.
-	  Farm selectedFarm = farmService.selectFarmById(farmId);
-	  System.out.println(farmId);
-	  return selectedFarm; // JSON 형식으로 농장 정보를 반환합니다.
-	}
-	
-	@PostMapping("/hopeItem.go")
-	//사용자가 입력한 후 버튼을 누르면, uHI 메서드가 실행되어 사용자의 입력값을 세션에 저장
+	    Farm selectedFarm = farmService.selectFarmById(farmId);
+	    System.out.println(farmId);
+	    return selectedFarm;
+	}	
+	@PostMapping("/hopeItem.go")//작물세션값	
     public String userHopeItem(HttpServletRequest request) {
-        String hItem1 = request.getParameter("hItem1");
-        String hItem2 = request.getParameter("hItem2");
-
-        HttpSession session = request.getSession();
-        session.setAttribute("hItem1", hItem1);
-        session.setAttribute("hItem2", hItem2);
-
-        // 다음 뷰 또는 리디렉션 대상 반환
-        return  "redirect:/sector/sectorRez2.my";
+		String hItem1 = request.getParameter("hItem1");
+		String hItem2 = request.getParameter("hItem2");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("hItem1", hItem1);
+		session.setAttribute("hItem2", hItem2);
+		return  "redirect:/sector/sectorRez2.my";
     }
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
