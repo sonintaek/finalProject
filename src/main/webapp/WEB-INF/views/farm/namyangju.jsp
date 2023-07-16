@@ -23,7 +23,7 @@
 			<div>
 				[남양주 서씨네농장]<br>
 				매일 <span class="point">1~2회 고객님의 주말농장을 </span>관리합니다.<br>
-				서씨네농장에서 매주 월,수,금 텃밭의 상태를 카톡으로 알려드립니다.
+				서씨네농장에서 매주 월,수,금 텃밭의 상태를 카톡으로 알려드립니다. 계절별 가격 동일하며 동절기 미운영합니다. 
 			</div>
 			<div>
 				수확시기에 못 오실 경우 <span class="point">"서씨네농장 주인이 수확하여"</span><br> 배송 서비스를 진행합니다.<br>
@@ -66,7 +66,33 @@
 	
 	<div class="box">
 		<h2>오시는 길</h2>
-		<h3>인택이 카카오맵api</h3>
+		<div id="map4" style="width:500px;height:400px; margin: auto;"></div>
+	   
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cae32d26dc4bc205934ad2152e3c8528"></script>
+					   
+		<script>
+		   var container4 = document.getElementById('map4');
+		   var options4 = {
+		      center: new kakao.maps.LatLng(37.6118770929566, 127.215959062044 ),
+		      level: 5 // 확대 레벨인데 3 적당한거 같아요 
+		   };
+		   var map4 = new kakao.maps.Map(container4, options4);
+		   
+		   var imageSrc = '${pageContext.request.contextPath}/resources/images/kakaoMark.png',
+		   imageSize = new kakao.maps.Size(50, 50),
+		   imageOption = {offset: new kakao.maps.Point(33, 67)};
+			      
+		   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+		   var markerPosition  = new kakao.maps.LatLng(37.6118770929566, 127.215959062044 );
+		
+		   var marker = new kakao.maps.Marker({
+		      position: markerPosition,
+		      image: markerImage
+		   });
+			      
+		   marker.setMap(map);
+		  		
+		</script>	
 	</div>
 </div>
 	

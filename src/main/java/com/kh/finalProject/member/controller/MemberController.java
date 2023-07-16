@@ -30,6 +30,8 @@ public class MemberController {
 	private BCryptPasswordEncoder passwordEncoder;	// 비밀번호를 암호화
 	
 	
+	
+	
 	@GetMapping("/memberEnroll.me")
 	public void memberEnroll() {}
 	

@@ -35,37 +35,12 @@ public class SectorController {
 	 @PostMapping("/radioRez.my")
 	    public String radioRez(String radio, Model model, RedirectAttributes redirectAttr) {		 
 	     Sector sector = sectorService.radioRez(radio);
-	    model.addAttribute("radio", sector);
+	     model.addAttribute("radio", sector);
 	     System.out.println(sector.getSectorName());
 	     System.out.println(radio);
 	     redirectAttr.addFlashAttribute("msg",sector.getSectorName()+"인 것을 확인하세요^ㅡ^");	    
 	        return "/reservation/reserForm";
 	    }
 	
-//	@PostMapping("/radioRez.my")
-//	public String radioRez(Model model) {
-//		List<Sector> radio = sectorService.radioRez();
-//		model.addAttribute("radio", radio);
-//		System.out.println(radio);
-//		return "${pageContext.request.contextPath}/reservation/reserForm.do";
-//	}
-//	@PostMapping("/radioRez.my")	//예약섹터선택
-//	public String radioRez(@RequestParam("radio") String sectorNo, Model model) {
-//		String result = reservationMapper.getColumnValueBySectorNo(sectorNo);
-//		model.addAttribute("result", result);
-//		return "redirect:/reservation/reserForm.do";	
-//	}
-//	/* redirect: */
-//	
-	
-	/*
-	 * @PostMapping("/radioRez.my") public String radioRez(@RequestParam("radio")
-	 * String[] sectorNos, Model model) { List<String> results = new ArrayList<>();
-	 * for (String sectorNo : sectorNos) { String result =
-	 * sectorMapper.getColumnValueBySectorNo(sectorNo); results.add(result); }
-	 * model.addAttribute("results", results); return
-	 * "${pageContext.request.contextPath}/reservation/reserForm.do"; // 결과를 렌더링할 뷰의
-	 * 이름으로 변경해주세요. }
-	 */
 
 }

@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 
+
+
 <!-- 농장앨범 css주기 -->
 <div class="swiper">
 	<div class="swiper-wrapper">
@@ -17,13 +19,15 @@
 	</div>
 </div> 
 
+
+
 <div class="product">
 	<div class="box">
 		<div class="top-box">
 			<div>
 				[군포 김씨네농장]<br>
 				매일 <span class="point">1~2회 고객님의 주말농장을 </span>관리합니다.<br>
-				김씨네농장에서 매주 월,수,금 텃밭의 상태를 카톡으로 알려드립니다.
+				김씨네농장에서 매주 월,수,금 텃밭의 상태를 카톡으로 알려드립니다. 계절별 가격 동일하며 동절기 미운영합니다. 
 			</div>
 			<div>
 				수확시기에 못 오실 경우 <span class="point">"김씨네 농장 주인이 수확하여"</span><br> 배송 서비스를 진행합니다.<br>
@@ -59,10 +63,36 @@
 		<span class="preferS">"김씨네 농장 주인이 2022년"</span> 수확시기에 오지못한 고객님의 작물을 수확하여 배송해드렸습니다.<br>
 		<span class="caution">▶수확시기에 오지 못하는 고객님은 회원가입시 입력한 주소로 배송되며 배송료를 포함한 소정의 비용이 발생합니다◀</span>
 	</div>
-	
+
 	<div class="box">
 		<h2>오시는 길</h2>
-		<h3>인택이 카카오맵api</h3>
+		<div id="map" style="width:500px;height:400px; margin: auto;"></div>
+	   
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cae32d26dc4bc205934ad2152e3c8528"></script>
+					   
+		<script>
+		   var container = document.getElementById('map');
+		   var options = {
+		      center: new kakao.maps.LatLng(37.3248866031584, 126.905422718028),
+		      level: 5 // 확대 레벨인데 3 적당한거 같아요 
+		   };
+		   var map = new kakao.maps.Map(container, options);
+		   
+		   var imageSrc = '${pageContext.request.contextPath}/resources/images/v22_2.png',
+		   imageSize = new kakao.maps.Size(50, 50),
+		   imageOption = {offset: new kakao.maps.Point(33, 67)};
+			      
+		   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+		   var markerPosition  = new kakao.maps.LatLng(37.3248866031584, 126.905422718028);
+		
+		   var marker = new kakao.maps.Marker({
+		      position: markerPosition,
+		      image: markerImage
+		   });
+			      
+		   marker.setMap(map);
+		  		
+		</script>				
 	</div>
 </div>
 	

@@ -23,7 +23,7 @@
 			<div>
 				[양주 윤씨네농장]<br>
 				매일 <span class="point">1~2회 고객님의 주말농장을 </span>관리합니다.<br>
-				윤씨네농장에서 매주 월,수,금 텃밭의 상태를 카톡으로 알려드립니다.
+				윤씨네농장에서 매주 월,수,금 텃밭의 상태를 카톡으로 알려드립니다. 계절별 가격 동일하며 동절기 미운영합니다. 
 			</div>
 			<div>
 				수확시기에 못 오실 경우 <span class="point">"윤씨네농장 주인이 수확하여"</span><br> 배송 서비스를 진행합니다.<br>
@@ -63,7 +63,33 @@
 	
 	<div class="box">
 		<h2>오시는 길</h2>
-		<h3>인택이 카카오맵api</h3>
+		<div id="map2" style="width:500px;height:400px; margin: auto;"></div>
+	   
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cae32d26dc4bc205934ad2152e3c8528"></script>
+					   
+		<script>
+		   var container2 = document.getElementById('map2');
+		   var options2 = {
+		      center: new kakao.maps.LatLng(37.6896238389643, 126.931941975112 ),
+		      level: 5 // 확대 레벨인데 3 적당한거 같아요 
+		   };
+		   var map2 = new kakao.maps.Map(container2, options2);
+		   
+		   var imageSrc = '${pageContext.request.contextPath}/resources/images/kakaoMark.png',
+		   imageSize = new kakao.maps.Size(50, 50),
+		   imageOption = {offset: new kakao.maps.Point(33, 67)};
+			      
+		   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+		   var markerPosition  = new kakao.maps.LatLng(37.6896238389643, 126.931941975112 );
+		
+		   var marker = new kakao.maps.Marker({
+		      position: markerPosition,
+		      image: markerImage
+		   });
+			      
+		   marker.setMap(map2);
+		  		
+		</script>	
 	</div>
 </div>
 	

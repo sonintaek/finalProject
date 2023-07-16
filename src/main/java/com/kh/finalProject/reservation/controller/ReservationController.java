@@ -25,18 +25,21 @@ public class ReservationController {
 	@Autowired
 	private ReservationService reservationService;
 	
-
-	
 	@RequestMapping("/indexFarm.do")
-	   public void resFarm() {}
-	
+	   public void resFarm() {}	
 	@RequestMapping("/reserInsert.do")
-	   public void reserForm() {}	
-	
+	   public void reserForm() {}		
 	@RequestMapping("/reserForm.do")
 		public void reservationForm(){}
 	
 	
+//	------------예약페이지-----------------
+	@PostMapping("/reserInsert.do")  //예약페이지 마지막 인설트
+	public String reserInsert(Reservation reservation, RedirectAttributes redirectAttr ) {
+		int result = reservationService.insertReservation(reservation);
+		redirectAttr.addFlashAttribute("msg","수정완료");
+		return "/reservation/resermoney";
+	}
 	
 // -------------관리자페이지---------------
 	@GetMapping("/adminRezList.my")//관리자페이지 예약조회
@@ -54,13 +57,6 @@ public class ReservationController {
 	public String adminRezUpdate(Reservation reservation, Model model) {
 		int result = reservationService.adminRezUpdate(reservation);
 		return "jsonView";
-	}
-//	------------예약페이지-----------------
-	@PostMapping("/reserInsert.do")  //예약페이지 마지막 인설트
-	public String reserInsert(Reservation reservation, RedirectAttributes redirectAttr ) {
-		int result = reservationService.insertReservation(reservation);
-		redirectAttr.addFlashAttribute("msg","수정완료");
-		return "/reservation/resermoney";
 	}
 
 }	
